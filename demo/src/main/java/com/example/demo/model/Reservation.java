@@ -5,15 +5,12 @@
  */
 package com.example.demo.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,11 +32,20 @@ public class Reservation {
 		this.flight = flight;
 	}
 
+	public Reservation(int cedulaCliente, Flight flight) {
+		super();
+		this.cedulaCliente = cedulaCliente;
+		this.flight = flight;
+	}
+
 	@Id
 	@GeneratedValue
 	private long id;
 	@Column(name = "cedulaCliente")
 	private int cedulaCliente;
+	@ManyToOne
+	@JoinColumn(name = "idFlight")
+	private Flight flight;
 
 	// @Column(name = "idFlight")
 	// private long idFlight;
@@ -51,9 +57,6 @@ public class Reservation {
 	// public void setIdFlight(long idFlight) {
 	// this.idFlight = idFlight;
 	// }
-	@ManyToOne
-	@JoinColumn(name = "idFlight")
-	private Flight flight;
 
 	public Flight getFlight() {
 		return flight;

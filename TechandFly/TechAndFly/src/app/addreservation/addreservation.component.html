@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">YOUR FLIGHT</label>
+          <input type="text" class="form-control" [(ngModel)]="idFlight" id="formGroupExampleInput" name="idFlight" placeholder="ID FLIGHT"
+            readonly>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">YOUR ID</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Write your identification" [(ngModel)]="cedula"
+            name="cedula">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addReservation()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

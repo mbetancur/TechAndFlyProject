@@ -12,4 +12,6 @@ public interface IReservationService {
 
 	public abstract Reservation addReservation(Reservation reservation);
 
+	public abstract List<Reservation> getReservationByCedula(int cedula);
+
 }

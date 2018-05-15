@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">YOUR ID</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="YOUR ID" name="idReservation" [(ngModel)]="idReservation">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="findReservation()">Submit</button>
+      </form>
+      <br>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="bg-danger"># RESERVATION</th>
+            <th class="bg-danger">ID CLIENT</th>
+            <th class="bg-danger">FROM - TO</th>
+            <th class="bg-danger">DATETIME</th>
+            <th class="bg-danger">ID FLIGHT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reserv of reservs; let i = index">
+            <td class="table-danger">{{i+1}}</td>
+            <td class="table-danger">{{reserv.cedulaCliente}}</td>
+            <td class="table-danger">{{reserv.flight.fromTo}}</td>
+            <td class="table-danger">{{reserv.flight.dateTime}}</td>
+            <td class="table-danger">{{reserv.flight.id}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

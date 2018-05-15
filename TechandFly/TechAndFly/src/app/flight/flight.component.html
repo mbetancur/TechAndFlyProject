@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h2>List of available flights:</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"># Flight</th>
+            <th scope="col">From - To</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <select class="form-control" id="sel1" [(ngModel)]="idFlight">
+        <option>CHOOSE A FLIGHT!</option>
+        <option *ngFor="let flight of flights; let i = index" [ngValue]="flight">
+          {{i+1}}- - - -{{flight.fromTo}} - - - - {{flight.dateTime}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <h6>How old are you?</h6>
+  <div class="form-check mb-2">
+    <input class="form-check-input" type="checkbox" id="autoSizingCheck" [(ngModel)]="checkage">
+    <label class="form-check-label" for="autoSizingCheck">
+      I´m 18+
+    </label>
+  </div>
+  <button type="button" [disabled]="!checkage" [class.btn-disabled]="checkage" [routerLink]="['/addreservationComponent', idFlight.id ]"
+    class="btn btn-danger">Book me a flight</button>
+  <button type="button" [routerLink]="['/findreservationComponent']" routerLinkActive="router-link-active" class="btn btn-outline-danger">Find my reservation</button>
+</div>

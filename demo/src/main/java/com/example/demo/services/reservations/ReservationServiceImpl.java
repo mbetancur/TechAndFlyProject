@@ -1,5 +1,7 @@
 package com.example.demo.services.reservations;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,11 @@ public class ReservationServiceImpl implements IReservationService {
 	@Override
 	public Reservation addReservation(Reservation reservation) {
 		return reservationRepository.save(reservation);
+	}
+
+	@Override
+	public List<Reservation> getReservationByCedula(int cedula) {
+		return reservationRepository.findBycedulaCliente(cedula);
 	}
 
 }
